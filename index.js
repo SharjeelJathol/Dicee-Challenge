@@ -13,8 +13,18 @@ function assignAttribute(player)
         player.setAttribute("src", "./images/dice5.png");
     else if(dice===5)
         player.setAttribute("src", "./images/dice6.png");
+    return dice;
+}
+function decideWinner(player1, player2)
+{
+    if(player1>player2)
+        document.querySelector("h1").textContent="Player 1 Wins!";
+    else if(player1<player2)
+        document.querySelector("h1").textContent="Player 2 Wins!";
+    else
+        document.querySelector("h1").textContent="Draw!";
 }
 var arr=document.querySelectorAll("img");
-assignAttribute(arr[0]);
-assignAttribute(arr[1]);
-
+var player1=assignAttribute(arr[0]);
+var player2=assignAttribute(arr[1]);
+decideWinner(player1, player2);
